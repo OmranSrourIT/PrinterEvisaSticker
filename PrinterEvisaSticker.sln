@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterEvisaSticker", "PrinterEvisaSticker\PrinterEvisaSticker.csproj", "{A93A9232-B765-429F-BAC2-328A6A3592DC}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PrinterVisaSetup", "PrinterVisaSetup\PrinterVisaSetup.vdproj", "{34582EF2-E1BB-4918-8A20-F2C7C5AADA18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GET.Printers.Vi1200.SDKLib", "GET.Printers.Vi1200.SDKLib\GET.Printers.Vi1200.SDKLib.csproj", "{9866228F-718C-4192-8060-D91A6B5ECA97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{29C20023-5927-4818-83D0-1FEBF951EA39}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\Mendix Integration\Evisa Printer\Vi1200 SDK\Samples\Lib\PrinterComPro.dll = ..\..\..\Desktop\Mendix Integration\Evisa Printer\Vi1200 SDK\Samples\Lib\PrinterComPro.dll
+		..\..\..\Desktop\Mendix Integration\Evisa Printer\Vi1200 SDK\Samples\Lib\PrinterEthCom.dll = ..\..\..\Desktop\Mendix Integration\Evisa Printer\Vi1200 SDK\Samples\Lib\PrinterEthCom.dll
+		..\..\..\Desktop\Mendix Integration\Evisa Printer\Vi1200 SDK\Samples\Lib\REST_USB_WIN_DLL.dll = ..\..\..\Desktop\Mendix Integration\Evisa Printer\Vi1200 SDK\Samples\Lib\REST_USB_WIN_DLL.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A93A9232-B765-429F-BAC2-328A6A3592DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A93A9232-B765-429F-BAC2-328A6A3592DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A93A9232-B765-429F-BAC2-328A6A3592DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A93A9232-B765-429F-BAC2-328A6A3592DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34582EF2-E1BB-4918-8A20-F2C7C5AADA18}.Debug|Any CPU.ActiveCfg = Debug
+		{34582EF2-E1BB-4918-8A20-F2C7C5AADA18}.Release|Any CPU.ActiveCfg = Release
+		{9866228F-718C-4192-8060-D91A6B5ECA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9866228F-718C-4192-8060-D91A6B5ECA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9866228F-718C-4192-8060-D91A6B5ECA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9866228F-718C-4192-8060-D91A6B5ECA97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C2C1467-4150-4390-91CD-5B8F454C7552}
+	EndGlobalSection
+EndGlobal
