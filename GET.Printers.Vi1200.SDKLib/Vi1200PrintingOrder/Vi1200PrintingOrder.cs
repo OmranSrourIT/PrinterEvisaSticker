@@ -14,6 +14,7 @@ namespace GET.Printers.Vi1200
     {
         public Vi1200Printer Printer { private set; get; }
         public string DocumentName { get; set; } = "Vi1200 Document";
+        public string OrderId { get; set; } = "";
         public Bitmap FirstPage { get; set; }
         public PaperSize PaperSize { get; set; }
 

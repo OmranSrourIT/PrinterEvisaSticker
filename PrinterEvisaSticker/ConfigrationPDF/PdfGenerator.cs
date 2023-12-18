@@ -77,7 +77,7 @@ namespace PrinterEvisaSticker.WebApi
                             form.GetField("P_DurationOfStay").SetValue(ObjectData.P_DurationOfStay.ToUpper());
                             form.GetField("P_DateofIssue").SetValue(ObjectData.P_DateOfIssue.ToUpper());
                             form.GetField("P_DateofExpiry").SetValue(ObjectData.P_DateOfExpiry.ToUpper());
-                            form.GetField("P_MRZ").SetValue(ObjectData.P_MRZ.ToUpper());
+                        //    form.GetField("P_MRZ").SetValue(ObjectData.P_MRZ.ToUpper());
                           //  Adding Image To PDFTemplate
                             AddImageToPdf(document, Base64IMage);
 
@@ -107,7 +107,7 @@ namespace PrinterEvisaSticker.WebApi
                             form.GetField("P_Requester").SetValue(ObjectData.P_Requester_ARA.ToUpper());
                             form.GetField("P_DateofIssue").SetValue(ObjectData.P_DateOfIssue.ToUpper());
                             form.GetField("P_DateofExpiry").SetValue(ObjectData.P_DateOfExpiry.ToUpper());
-                            form.GetField("P_MRZ").SetValue(ObjectData.P_MRZ.ToUpper());
+                          //  form.GetField("P_MRZ").SetValue(ObjectData.P_MRZ.ToUpper());
 
                             //Adding Image To PDFTemplate
                             AddImageToPdf(document, Base64IMage);

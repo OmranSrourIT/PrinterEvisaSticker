@@ -1,17 +1,14 @@
-﻿using Spire.Pdf;
+﻿ 
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
-using Syncfusion.Pdf.Parsing;
-using Syncfusion.Windows.Forms.PdfViewer;
+using System.Threading.Tasks; 
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using IronPdf;
+ 
 
 namespace PrinterEvisaSticker.ConfigrationPDF
 {

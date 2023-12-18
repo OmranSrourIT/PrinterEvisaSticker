@@ -11,7 +11,9 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 
@@ -19,17 +21,36 @@ namespace PrinterEvisaSticker
 {
     public partial class Service1 : ServiceBase
     {
-        Vi1200Printer Vi1200Printer; 
+        private System.Threading.Timer timer;
+        Vi1200Printer Vi1200Printer;
 
-        bool isClosing = false;
-        public List<Bitmap> PrintingOrders { get; set; } = new List<Bitmap>();
+        public Dictionary<string, Vi1200OrderStatus> OrderStatus = new Dictionary<string, Vi1200OrderStatus>();
         public Service1()
         {
+
             InitializeComponent();
+
+            Program.lblMediaState = null;
+            Program.lblEngineState = null;
+            Program.lblMachineState = null;
+            Program.lblTotalCount = null;
+            Program.lblIsAuthorized = null;
+            Program.lblC = null;
+            Program.lblK = null;
+            Program.lblM = null;
+            Program.lblY = null;
+            Program.ObjectConfig = null;
+            Program.lblOrderStatus = null;
+            Program.lblCompleted = null;
+            Program.lblStarted = null;
+            Program.lblError = null;
+            Program.isClosing = false;
+            Program.PrintingOrders = new List<Bitmap>();
+            Program.ObjectConfig = null;
             Program.ObjectConfig = GetPrinter();
             UnRegisterVi100PrinterEvents();
             RegisterVi100PrinterEvents();
-          
+
         }
 
         void RegisterVi100PrinterEvents()
@@ -55,8 +76,9 @@ namespace PrinterEvisaSticker
         private void printerOrderStatusUpdated(Vi1200Printer printer, Vi1200PrintingOrder args)
         {
 
-            if (args != null && !isClosing)
+            if (args != null &&  !Program.isClosing)
             {
+               
 
                 if (args.Status.OrderStatus != ORDER_STATE.CONFIGURING)
                 {
@@ -71,22 +93,23 @@ namespace PrinterEvisaSticker
 
         private void printer_ConfigureNewPrintOrder(Vi1200Printer printer, Vi1200PrintingOrder args)
         {
+          
             Console.WriteLine("Printer can configure order");
-            if (PrintingOrders.Count > 0)
+            if (Program.PrintingOrders.Count > 0)
             {
-                args.FirstPage = PrintingOrders[0];
+                args.FirstPage = Program.PrintingOrders[0];
                 var result = args.Accept();
 
-                PrintingOrders.Remove(args.FirstPage);
+                Program.PrintingOrders.Remove(args.FirstPage);
                 Console.WriteLine("Order is Configured");
 
             }
         }
         private void printer_PrinterStatusUpdated(Vi1200Printer printer, Vi1200Status args)
         {
-            if (args != null && !isClosing)
-            {
-
+             
+            if (args != null && !Program.isClosing)
+            { 
                 Program.lblMediaState = args.MediaLoadStatus.ToString();
                 Program.lblEngineState = args.EngineState.ToString();
                 Program.lblMachineState = args.MachineState.ToString();
@@ -109,6 +132,7 @@ namespace PrinterEvisaSticker
             try
             {
                 var result = Vi1200Printer.GetPrinters(CONNECTION_TYPE.USB, out List<Vi1200Printer> printers);
+                Logger.WriteLog(" بدء الطابعة" + result);
 
                 if (printers.Count > 0)
                 {
@@ -127,6 +151,7 @@ namespace PrinterEvisaSticker
             catch (Exception ex)
             {
                 var ErrorMessagea = ex.Message;
+                Logger.WriteLog(" خطأ " +ErrorMessagea);
 
             }
 
@@ -138,6 +163,8 @@ namespace PrinterEvisaSticker
         {
             try
             {
+                Logger.WriteLog(" بدء الخدمة");
+
                 string ServiceURLPath = ConfigurationManager.AppSettings["UrlSelfHosting"]; // url port 9999
 
                 var config = new HttpSelfHostConfiguration(ServiceURLPath);
@@ -158,6 +185,7 @@ namespace PrinterEvisaSticker
 
                 //WriteToFile("api http://localhost:1200 in done to calling" + DateTime.Now);
 
+                timer = new System.Threading.Timer(TimerCallback, null, TimeSpan.Zero, TimeSpan.FromSeconds(3));
             }
             catch (Exception ex)
             {
@@ -166,10 +194,22 @@ namespace PrinterEvisaSticker
                 Logger.WriteLog("ErrorMessage" + Environment.NewLine + ex.Message + Environment.NewLine + stackTrace);
 
             }
+
         }
 
         protected override void OnStop()
         {
+            timer?.Change(Timeout.Infinite, Timeout.Infinite);
+            timer?.Dispose();
         }
+
+        private void TimerCallback(object state)
+        {
+            Program.ObjectConfig = GetPrinter();
+
+        }
+
     }
+
+       
 }

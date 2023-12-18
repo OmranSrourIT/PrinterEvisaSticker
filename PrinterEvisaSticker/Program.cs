@@ -1,6 +1,7 @@
 ﻿using PrinterEvisaSticker.WebApi;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
@@ -10,6 +11,7 @@ namespace PrinterEvisaSticker
 {
     static class Program
     {  
+
         public static string lblMediaState;
         public static string lblEngineState;
         public static string lblMachineState;
@@ -24,6 +26,8 @@ namespace PrinterEvisaSticker
         public static string lblCompleted;
         public static string lblStarted;
         public static string lblError;
+        public  static bool isClosing =false; 
+        public static List<Bitmap> PrintingOrders { get; set; } = new List<Bitmap>();
 
         /// <summary>
         /// The main entry point for the application.
