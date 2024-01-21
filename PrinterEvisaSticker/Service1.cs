@@ -90,7 +90,6 @@ namespace PrinterEvisaSticker
 
             }
         }
-
         private void printer_ConfigureNewPrintOrder(Vi1200Printer printer, Vi1200PrintingOrder args)
         {
           
@@ -123,7 +122,6 @@ namespace PrinterEvisaSticker
 
             }
         }
-
         public PrinterConfigration GetPrinter()
         {
             PrinterConfigration obj = new PrinterConfigration();
@@ -132,8 +130,7 @@ namespace PrinterEvisaSticker
             try
             {
                 var result = Vi1200Printer.GetPrinters(CONNECTION_TYPE.USB, out List<Vi1200Printer> printers);
-                Logger.WriteLog(" بدء الطابعة" + result);
-
+                
                 if (printers.Count > 0)
                 {
                     foreach (var item in printers)
@@ -151,20 +148,17 @@ namespace PrinterEvisaSticker
             catch (Exception ex)
             {
                 var ErrorMessagea = ex.Message;
-                Logger.WriteLog(" خطأ " +ErrorMessagea);
+                Logger.WriteLog("خطأ اثناء تعريف الطابعة :" +ErrorMessagea);
 
             }
 
 
             return obj;
         }
-
         protected override void OnStart(string[] args)
         {
             try
-            {
-                Logger.WriteLog(" بدء الخدمة");
-
+            {  
                 string ServiceURLPath = ConfigurationManager.AppSettings["UrlSelfHosting"]; // url port 9999
 
                 var config = new HttpSelfHostConfiguration(ServiceURLPath);
@@ -185,12 +179,11 @@ namespace PrinterEvisaSticker
 
                 //WriteToFile("api http://localhost:1200 in done to calling" + DateTime.Now);
 
-                timer = new System.Threading.Timer(TimerCallback, null, TimeSpan.Zero, TimeSpan.FromSeconds(3));
+               timer = new System.Threading.Timer(TimerCallback, null, TimeSpan.Zero, TimeSpan.FromSeconds(3));
             }
             catch (Exception ex)
             {
-                var stackTrace = new StackTrace(ex, true);
-
+                var stackTrace = new StackTrace(ex, true); 
                 Logger.WriteLog("ErrorMessage" + Environment.NewLine + ex.Message + Environment.NewLine + stackTrace);
 
             }

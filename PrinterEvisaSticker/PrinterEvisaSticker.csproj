@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\netstandard\OpenCvSharp4.runtime.win.props" Condition="Exists('..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\netstandard\OpenCvSharp4.runtime.win.props')" />
-  <Import Project="..\packages\IronPdf.Slim.2023.12.6\build\IronPdf.Slim.props" Condition="Exists('..\packages\IronPdf.Slim.2023.12.6\build\IronPdf.Slim.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -143,31 +141,6 @@
     <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
     </Reference>
-    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCvSharp4.4.8.0.20230708\lib\netstandard2.0\OpenCvSharp.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="OpenCvSharp.Blob, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.Blob.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.CPlusPlus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.CPlusPlus.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.DebuggerVisualizers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.DebuggerVisualizers.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.Gpu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.Gpu.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.MachineLearning, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.MachineLearning.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.UserInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.UserInterface.dll</HintPath>
-    </Reference>
     <Reference Include="Patagames.Pdf, Version=11.79.45.471, Culture=neutral, PublicKeyToken=60fd6cf9b15941cf, processorArchitecture=MSIL">
       <HintPath>..\packages\Pdfium.Net.SDK.4.87.2704\lib\net471\Patagames.Pdf.dll</HintPath>
     </Reference>
@@ -182,9 +155,6 @@
     </Reference>
     <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
-    </Reference>
-    <Reference Include="SautinSoft.PdfFocus, Version=2023.5.10.0, Culture=neutral, PublicKeyToken=0b79b934109b3e9e, processorArchitecture=MSIL">
-      <HintPath>..\packages\sautinsoft.pdffocus.2023.5.10\lib\net471\SautinSoft.PdfFocus.dll</HintPath>
     </Reference>
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
@@ -278,6 +248,7 @@
     <Reference Include="System.Web.Cors, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.3.0\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.3.0\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -296,7 +267,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigrationPDF\PRINTPDF.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -322,9 +292,6 @@
     <Content Include="icudt.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="OpenCvSharpExtern.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="pdfium.dll" />
     <None Include="App.config" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -335,14 +302,9 @@
     <None Include="fonts\AdobeArabicBold.otf" />
     <None Include="fonts\Janna LT Bold.ttf" />
     <None Include="fonts\OCRB Regular.ttf" />
-    <None Include="libOpenCvSharpExtern.so" />
     <None Include="libpdfium.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="OpenCvSharp.Blob.dll.config" />
-    <None Include="OpenCvSharp.CPlusPlus.dll.config" />
-    <None Include="OpenCvSharp.dll.config" />
-    <None Include="OpenCvSharp.MachineLearning.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -362,9 +324,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="STATUS PRINTING\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Pdfium.Net.SDK.4.87.2704\build\Pdfium.Net.SDK.targets" Condition="Exists('..\packages\Pdfium.Net.SDK.4.87.2704\build\Pdfium.Net.SDK.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -372,17 +332,11 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Pdfium.Net.SDK.4.87.2704\build\Pdfium.Net.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Pdfium.Net.SDK.4.87.2704\build\Pdfium.Net.SDK.targets'))" />
-    <Error Condition="!Exists('..\packages\IronPdf.Native.Chrome.Windows.2023.12.8\build\net\IronPdf.Native.Chrome.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\IronPdf.Native.Chrome.Windows.2023.12.8\build\net\IronPdf.Native.Chrome.Windows.targets'))" />
     <Error Condition="!Exists('..\packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
     <Error Condition="!Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
-    <Error Condition="!Exists('..\packages\IronPdf.Slim.2023.12.6\build\IronPdf.Slim.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\IronPdf.Slim.2023.12.6\build\IronPdf.Slim.props'))" />
-    <Error Condition="!Exists('..\packages\Syncfusion.PdfToImageConverter.WinForms.23.2.6\build\net46\Syncfusion.PdfToImageConverter.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Syncfusion.PdfToImageConverter.WinForms.23.2.6\build\net46\Syncfusion.PdfToImageConverter.WinForms.targets'))" />
-    <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\netstandard\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\netstandard\OpenCvSharp4.runtime.win.props'))" />
   </Target>
-  <Import Project="..\packages\IronPdf.Native.Chrome.Windows.2023.12.8\build\net\IronPdf.Native.Chrome.Windows.targets" Condition="Exists('..\packages\IronPdf.Native.Chrome.Windows.2023.12.8\build\net\IronPdf.Native.Chrome.Windows.targets')" />
   <Import Project="..\packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets')" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
-  <Import Project="..\packages\Syncfusion.PdfToImageConverter.WinForms.23.2.6\build\net46\Syncfusion.PdfToImageConverter.WinForms.targets" Condition="Exists('..\packages\Syncfusion.PdfToImageConverter.WinForms.23.2.6\build\net46\Syncfusion.PdfToImageConverter.WinForms.targets')" />
 </Project>

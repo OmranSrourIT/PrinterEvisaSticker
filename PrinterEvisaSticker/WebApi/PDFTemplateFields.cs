@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace PrinterEvisaSticker.WebApi
 {
     public class PDFTemplateFields
-    {
-
-
+    { 
         public string P_NationalityParam;
         public string P_SerialNoDevice;
         public string P_SerialNoPrinter;
